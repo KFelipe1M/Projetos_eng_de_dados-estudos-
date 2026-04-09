@@ -3,11 +3,12 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
+api_key = os.getenv("API_KEY")
 
 response = requests.get(
      "https://api.freecurrencyapi.com/v1/latest",
     params={
-            "api_key": os.getenv("API_KEY"),
+            "apikey": api_key,
             "base_currency": "BRL",
             "currencies": "USD,EUR,JPY"
             }
@@ -15,5 +16,3 @@ response = requests.get(
 
 print(response.status_code)
 print(response.json())
-print(api_key)
-print("API_KEY", api_key)
